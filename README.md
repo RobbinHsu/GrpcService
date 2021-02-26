@@ -1,8 +1,8 @@
 # GrpcService
-實作 MSDB 上的 gRPC 範例
+實作 MSDN 上的 gRPC 範例
 
-
-* 建立 gRPC Server
+## 建立 gRPC Server
+* 建立專案
     ```
     dotnet new grpc -o GrpcGreeter
     code -r GrpcGreeter
@@ -12,7 +12,8 @@
     Install-Package Google.Protobuf  
     Install-Package Grpc.Tools  
     ```
-* 建立 gRPC Client
+## 建立 gRPC Client
+* 建立專案
     ```
     dotnet new console -o GrpcGreeterClient  
     code -r GrpcGreeterClient
@@ -23,7 +24,12 @@
     Install-Package Google.Protobuf  
     Install-Package Grpc.Tools  
     ```
-    
+* 新增具有代表 greet.proto 檔案之 <Protobuf> 元素的項目群組：
+    ```
+    <ItemGroup>
+      <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
+    </ItemGroup>
+    ```    
 ### GrpcGreeter 專案檔：  
 * greet.proto： Protos/greet.proto 檔案定義 Greeter gRPC，並用來產生 gRPC 伺服器資產。 
 * Services 資料夾：包含服務的執行 Greeter 。
